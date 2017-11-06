@@ -1,5 +1,6 @@
 package aporosin.csvLoaderWithSpringBatch.insurance;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class InsuranceFromCSV {
@@ -9,6 +10,46 @@ public class InsuranceFromCSV {
     private String portfolioCode;
     private String groupCode;
     private String policyCode;
+    private Boolean initialMeasurementFlag;
+    private BigDecimal riskAdjustmentRate;
+    private String discountCurveCode;
+    private BigDecimal discountRateAnnual;
+    private String coverageCode;
+    private LocalDateTime issueDate;
+    private LocalDateTime contractStartDate;
+    private CalculationFrequency calculationFrequency;
+
+    public Boolean getInitialMeasurementFlag() {
+        return initialMeasurementFlag;
+    }
+
+    public void setInitialMeasurementFlag(Boolean initialMeasurementFlag) {
+        this.initialMeasurementFlag = initialMeasurementFlag;
+    }
+
+    public BigDecimal getRiskAdjustmentRate() {
+        return riskAdjustmentRate;
+    }
+
+    public void setRiskAdjustmentRate(BigDecimal riskAdjustmentRate) {
+        this.riskAdjustmentRate = riskAdjustmentRate;
+    }
+
+    public String getDiscountCurveCode() {
+        return discountCurveCode;
+    }
+
+    public void setDiscountCurveCode(String discountCurveCode) {
+        this.discountCurveCode = discountCurveCode;
+    }
+
+    public BigDecimal getDiscountRateAnnual() {
+        return discountRateAnnual;
+    }
+
+    public void setDiscountRateAnnual(BigDecimal discountRateAnnual) {
+        this.discountRateAnnual = discountRateAnnual;
+    }
 
     public long getInId() {
         return inId;
@@ -66,33 +107,28 @@ public class InsuranceFromCSV {
         this.coverageCode = coverageCode;
     }
 
-    public String getIssueDate() {
+    public LocalDateTime getIssueDate() {
         return issueDate;
     }
 
-    public void setIssueDate(String issueDate) {
+    public void setIssueDate(LocalDateTime issueDate) {
         this.issueDate = issueDate;
     }
 
-    public String getContractStartDate() {
+    public LocalDateTime getContractStartDate() {
         return contractStartDate;
     }
 
-    public void setContractStartDate(String contractStartDate) {
+    public void setContractStartDate(LocalDateTime contractStartDate) {
         this.contractStartDate = contractStartDate;
     }
 
-    public String getCalculationFrequency() {
+    public CalculationFrequency getCalculationFrequency() {
         return calculationFrequency;
     }
 
-    public void setCalculationFrequency(String calculationFrequency) {
+    public void setCalculationFrequency(CalculationFrequency calculationFrequency) {
         this.calculationFrequency = calculationFrequency;
     }
-
-    private String coverageCode;
-    private String issueDate;
-    private String contractStartDate;
-    private String calculationFrequency;
 
 }
