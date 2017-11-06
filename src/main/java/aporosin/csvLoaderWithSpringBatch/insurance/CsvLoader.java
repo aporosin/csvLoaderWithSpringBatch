@@ -2,6 +2,7 @@ package aporosin.csvLoaderWithSpringBatch.insurance;
 
 import aporosin.csvLoaderWithSpringBatch.CsvLoaderWithSpringBatchApplication;
 import aporosin.csvLoaderWithSpringBatch.CustomLocalDateTimeEditor;
+import aporosin.csvLoaderWithSpringBatch.EnumPropertyEditor;
 import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.LineMapper;
@@ -23,6 +24,7 @@ import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.function.BiFunction;
 
 public class CsvLoader<T> implements ICsvLoader<T> {
 
@@ -123,6 +125,7 @@ public class CsvLoader<T> implements ICsvLoader<T> {
         editors.put(LocalDateTime.class, new CustomLocalDateTimeEditor(true));
         editors.put(Boolean.class, new CustomBooleanEditor("Y", "N", false));
         editors.put(BigDecimal.class, new CustomNumberEditor(BigDecimal.class, NumberFormat.getInstance(), true));
+        editors.put(ProcessingStatus.class, new EnumPropertyEditor(ProcessingStatus.class, (enumValue, text)-> ((ProcessingStatus)enumValue).getCode().equals(text) ));
 
         insuranceMapper.setCustomEditors(editors);
         return insuranceMapper;
