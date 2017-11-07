@@ -124,6 +124,7 @@ public class CsvLoader<T> implements ICsvLoader<T> {
         Map<Object, PropertyEditor> editors = new HashMap<>();
         editors.put(LocalDateTime.class, new CustomLocalDateTimeEditor(true));
         editors.put(Boolean.class, new CustomBooleanEditor("Y", "N", false));
+        editors.put(boolean.class, new CustomBooleanEditor("Y", "N", false));
         editors.put(BigDecimal.class, new CustomNumberEditor(BigDecimal.class, NumberFormat.getInstance(), true));
         editors.put(ProcessingStatus.class, new EnumPropertyEditor(ProcessingStatus.class, (enumValue, text)-> ((ProcessingStatus)enumValue).getCode().equals(text) ));
 
