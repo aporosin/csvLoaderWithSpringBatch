@@ -4,16 +4,24 @@ import aporosin.csvLoaderWithSpringBatch.insurance.*;
 import org.assertj.core.util.Lists;
 import org.junit.Assert;
 import org.junit.Test;
-
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+//import org.springframework.batch.
+//https://www.toptal.com/spring/spring-batch-tutorial
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class CsvLoaderWithSpringBatchApplicationTests {
+
+    //@Autowired
+    //private JobLauncherTestUtils jobLauncherTestUtils;
 
 
 	@Test
@@ -26,6 +34,8 @@ public class CsvLoaderWithSpringBatchApplicationTests {
         List<InsuranceFromCSV> insurences = loader.loadCsv(file, insuranceFromCSVClass);
 
         Assert.assertEquals(3, insurences.size());
+
+
     }
 
     @Test
